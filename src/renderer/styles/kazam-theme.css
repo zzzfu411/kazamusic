@@ -1,0 +1,235 @@
+/* kazam-theme — 163music cream / void-navy × 瓜子圆角苹果风 */
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../brand/fonts/dm-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("../brand/fonts/dm-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body, button, input, textarea, select {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+:root {
+  --font-ui: "DM Sans", "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+  --font-display: "DM Sans", "PingFang SC", sans-serif;
+  --lyric-font: "DM Sans", sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+  --ui-radius-sm: 6px;
+  --ui-radius-md: 8px;
+  --ui-radius-lg: 10px;
+  --glass-inset: 0 1px #ffffff14 inset, 0 0 0 1px #ffffff0f;
+  --glass-shadow: 0 12px 40px #00000026, 0 32px 80px #00000014;
+}
+
+html[data-theme="light"] {
+  --bg: #fdf6e3;
+  --bg-base: #fdf6e3;
+  --bg-elevated: color-mix(in srgb, #fffef9 94%, #facc15 6%);
+  --bg-sider: #fffef9;
+  --bg-player: #fffef9;
+  --bg-hover: rgba(250, 204, 21, 0.22);
+  --paper: #fffef9;
+  --ink: #1a1a2e;
+  --ink-muted: #555570;
+  --ink-faint: #9999b0;
+  --line: rgba(26, 26, 46, 0.12);
+  --line-strong: #1a1a2e;
+  --signal: #facc15;
+  --signal-deep: #173a52;
+  --accent: #facc15;
+  --accent-color: #facc15;
+  --red: #ff4d6a;
+  --blue: #3b82f6;
+  --shadow: 0 10px 32px rgba(26, 26, 46, 0.08);
+  --shadow-pop: 3px 3px 0 #1a1a2e;
+  --progress-fill: #173a52;
+  --player-bg: var(--bg-player);
+  --lyric-bg: #fffef9;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-tertiary: var(--ink-faint);
+  --border-color: var(--line);
+  --kazam-card: var(--paper);
+  --kazam-ink: var(--ink);
+  --kazam-border: var(--line);
+  --kazam-shadow: #1a1a2e;
+  --kazam-accent: #facc15;
+  --ui-accent-bg: #facc15;
+  --ui-control-bg: #fffef9;
+  --ui-control-bg-hover: #fff7cc;
+  --ui-control-border: rgba(26, 26, 46, 0.14);
+  --ui-control-fg: #1a1a2e;
+  --ui-control-fg-muted: #555570;
+  --ui-control-fg-subtle: #9999b0;
+  --amll-lp-color: #1a1a2e;
+  --glow-a: #facc1522;
+  --glow-b: #173a5214;
+  --glow-c: #fffef980;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #000000;
+  --bg-base: #000000;
+  --bg-elevated: color-mix(in srgb, #121212 92%, #173a52 8%);
+  --bg-sider: color-mix(in srgb, #121212 94%, #000 6%);
+  --bg-player: color-mix(in srgb, #121212 92%, #173a52 8%);
+  --bg-hover: rgba(23, 58, 82, 0.45);
+  --paper: #0c0c0c;
+  --ink: #f0f0f0;
+  --ink-muted: #a3a3a3;
+  --ink-faint: #6b6b6b;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: #3d3d3d;
+  --signal: #173a52;
+  --signal-deep: #1f4d6c;
+  --accent: #173a52;
+  --accent-color: #173a52;
+  --red: #e11d48;
+  --blue: #173a52;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-pop: 3px 3px 0 #173a52;
+  --progress-fill: #5a8fad;
+  --player-bg: var(--bg-player);
+  --lyric-bg: #050505;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-tertiary: var(--ink-faint);
+  --border-color: var(--line);
+  --kazam-card: #0c0c0c;
+  --kazam-ink: var(--ink);
+  --kazam-border: var(--line);
+  --kazam-shadow: #173a52;
+  --kazam-accent: #173a52;
+  --ui-accent-bg: #173a52;
+  --ui-control-bg: #111111;
+  --ui-control-bg-hover: #1a1a1a;
+  --ui-control-border: rgba(255, 255, 255, 0.12);
+  --ui-control-fg: #f0f0f0;
+  --ui-control-fg-muted: rgba(255, 255, 255, 0.65);
+  --ui-control-fg-subtle: rgba(255, 255, 255, 0.45);
+  --amll-lp-color: #f0f0f0;
+  --glow-a: transparent;
+  --glow-b: rgba(23, 58, 82, 0.5);
+  --glow-c: transparent;
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 18% 82%, var(--glow-a) 0%, transparent 52%),
+    radial-gradient(circle at 82% 18%, var(--glow-b) 0%, transparent 48%),
+    radial-gradient(circle at 50% 48%, var(--glow-c) 0%, transparent 55%);
+}
+html[data-theme="dark"] body {
+  background-image: radial-gradient(ellipse 70% 45% at 50% -15%, rgba(23, 58, 82, 0.5) 0%, transparent 60%);
+}
+
+* { box-sizing: border-box; }
+button { font-family: inherit; }
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+html[data-theme="dark"] ::selection {
+  color: #f0f4f8;
+}
+
+html[data-custom-scrollbar="1"] * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-faint) transparent;
+}
+html[data-custom-scrollbar="1"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html[data-custom-scrollbar="1"] *::-webkit-scrollbar-track {
+  background: transparent;
+}
+html[data-custom-scrollbar="1"] *::-webkit-scrollbar-thumb {
+  background: var(--ink-faint);
+  border-radius: 8px;
+}
+html[data-custom-scrollbar="1"] *::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+html[data-custom-scrollbar="1"] *::-webkit-scrollbar-corner {
+  background: transparent;
+}
+html[data-custom-scrollbar="0"] * {
+  scrollbar-width: none;
+}
+html[data-custom-scrollbar="0"] *::-webkit-scrollbar {
+  display: none;
+}
+
+.home-bg,
+.app > .home-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout style paint;
+}
+.home-bg,
+.home-bg * {
+  pointer-events: none;
+}
+.home-bg-color,
+.home-bg-image,
+.home-bg-video,
+.home-bg-overlay {
+  position: absolute;
+  inset: 0;
+}
+.home-bg-image,
+.home-bg-video {
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  transform: scale(1.2);
+  will-change: filter;
+}
+.home-bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.home-bg-video {
+  object-fit: cover;
+}
+.home-bg-overlay {
+  z-index: 1;
+}
+
+.detail-lyric-line,
+.detail-lyric-main,
+.detail-lyric-trans,
+.island-title,
+.island-sub,
+.taskbar-title,
+.taskbar-sub {
+  font-family: var(--lyric-font);
+}

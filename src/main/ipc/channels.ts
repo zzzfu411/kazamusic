@@ -1,0 +1,198 @@
+/**
+ * IPC channel strings used by ElectronAPI (`src/shared/electron-api.d.ts`)
+ * via `src/preload/index.ts`. Do not invent names.
+ *
+ * Island / taskbar window channels live in their own preloads and are omitted.
+ * `getLocalUrl` / `webdav.getPlayUrl` are custom-protocol URLs, not IPC.
+ */
+
+export const IpcChannel = {
+  WindowMinimize: "window:minimize",
+  WindowMaximize: "window:maximize",
+  WindowClose: "window:close",
+
+  PowerAcquire: "power:acquire",
+  PowerRelease: "power:release",
+
+  AppSetBackgroundThrottling: "app:set-background-throttling",
+  AppGetMemoryInfo: "app:get-memory-info",
+  AppVisibilityChanged: "app:visibility-changed",
+  AppGetInfo: "app:getInfo",
+  AppGetLogInfo: "app:getLogInfo",
+  AppLog: "app:log",
+  AppOpenLogDir: "app:openLogDir",
+  AppOpenExternal: "app:openExternal",
+  AppCheckForUpdates: "app:checkForUpdates",
+
+  DialogOpenFiles: "dialog:openFiles",
+  DialogOpenFolder: "dialog:openFolder",
+  DialogSelectImage: "dialog:selectImage",
+  DialogSelectVideo: "dialog:selectVideo",
+
+  LocalScanFolder: "local:scanFolder",
+  LocalScanFolders: "local:scanFolders",
+  LocalReadFiles: "local:readFiles",
+  LocalCancelScan: "local:cancelScan",
+  LocalScanProgress: "local:scanProgress",
+  LocalGetScanRoots: "local:getScanRoots",
+  LocalSaveScanRoots: "local:saveScanRoots",
+  LocalGetDurationFilter: "local:getDurationFilter",
+  LocalSetDurationFilter: "local:setDurationFilter",
+  LocalGetFileMetadata: "local:getFileMetadata",
+  LocalGetFileLyrics: "local:getFileLyrics",
+  LocalGetFileLyricsDetailed: "local:getFileLyricsDetailed",
+  LocalFileExists: "local:fileExists",
+  LocalGetFileMtimes: "local:getFileMtimes",
+  LocalWriteCover: "local:writeCover",
+  LocalValidateCovers: "local:validateCovers",
+
+  MediaToggle: "media:toggle",
+  MediaNext: "media:next",
+  MediaPrevious: "media:previous",
+  MediaStop: "media:stop",
+
+  UpdateTrayState: "update-tray-state",
+  TrayControl: "tray-control",
+
+  NeteasePost: "netease:post",
+  NeteaseQrPost: "netease:qr-post",
+  NeteaseEapi: "netease:eapi",
+  NeteaseRedirect: "netease:redirect",
+
+  QqGet: "qq:get",
+  QqPost: "qq:post",
+  QqFetchQr: "qq:fetch-qr",
+  QqGetCookieValue: "qq:get-cookie-value",
+  QqFetchRedirectCookies: "qq:fetch-redirect-cookies",
+  QqExtractWxCookies: "qq:extract-wx-cookies",
+
+  KugouGet: "kugou:get",
+  KugouLoginGet: "kugou:login-get",
+  KugouPost: "kugou:post",
+  KugouExtractCookies: "kugou:extract-cookies",
+  KugouDeviceCookies: "kugou:device-cookies",
+  KugouResolveShortLink: "kugou:resolve-short-link",
+
+  KuwoGet: "kuwo:get",
+  KuwoSearchKey: "kuwo:searchKey",
+
+  SodaDecrypt: "soda:decrypt",
+  FetchImage: "fetch:image",
+  BgLoadDefault: "bg:loadDefault",
+
+  DbSavePlayback: "db:savePlayback",
+  DbFlush: "db:flush",
+  DbGetPlayback: "db:getPlayback",
+  DbSaveFavorites: "db:saveFavorites",
+  DbLoadFavorites: "db:loadFavorites",
+  DbSaveRecentHistory: "db:saveRecentHistory",
+  DbLoadRecentHistory: "db:loadRecentHistory",
+  DbSaveTrackCache: "db:saveTrackCache",
+  DbUpsertTrackCache: "db:upsertTrackCache",
+  DbLoadTrackCache: "db:loadTrackCache",
+  DbLoadTracksByIds: "db:loadTracksByIds",
+  DbDeleteTrackCache: "db:deleteTrackCache",
+  DbSavePlaylists: "db:savePlaylists",
+  DbLoadPlaylists: "db:loadPlaylists",
+  DbSaveDownloads: "db:saveDownloads",
+  DbLoadDownloads: "db:loadDownloads",
+
+  SettingsUpdate: "settings:update",
+
+  CacheGetStats: "cache:getStats",
+  CacheClear: "cache:clear",
+  CacheOpenDir: "cache:openDir",
+  CacheSelectDir: "cache:selectDir",
+  DataGetDir: "data:getDir",
+  DataSelectDir: "data:selectDir",
+
+  DownloadStart: "download:start",
+  DownloadPause: "download:pause",
+  DownloadRemove: "download:remove",
+  DownloadProgress: "download:progress",
+  DownloadComplete: "download:complete",
+
+  SystemAudioGetDefaultSourceId: "system-audio:get-default-source-id",
+  RecognizeSong: "recognize-song",
+
+  IslandSetEnabled: "island:set-enabled",
+  IslandSetAlwaysOnTop: "island:set-always-on-top",
+  IslandPublish: "island:publish",
+  IslandPublishTick: "island:publish-tick",
+  IslandRemoteCommand: "island:remote-command",
+
+  LyricSyncBindSession: "lyric-sync:bind-session",
+  LyricSyncBindTransport: "lyric-sync:bind-transport",
+  LyricSyncClock: "lyric-sync:clock",
+  LyricSyncReset: "lyric-sync:reset",
+
+  SmtcWatchdogStart: "smtc-watchdog-start",
+  SmtcWatchdogStop: "smtc-watchdog-stop",
+  SmtcPreempted: "smtc-preempted",
+
+  M7Login: "m7:login",
+  M7Register: "m7:register",
+  M7SendCode: "m7:sendCode",
+  M7GetToken: "m7:getToken",
+  M7GetMe: "m7:getMe",
+  M7ClearToken: "m7:clearToken",
+  M7ReportTrack: "m7:reportTrack",
+  M7GetDeviceId: "m7:getDeviceId",
+
+  AppUpdateSetFeedURL: "app:update:setFeedURL",
+  AppUpdateDownload: "app:update:download",
+  AppUpdateInstall: "app:update:install",
+  AppUpdateIsDownloaded: "app:update:isDownloaded",
+  UpdateProgress: "update:progress",
+  UpdateDownloaded: "update:downloaded",
+  UpdateError: "update:error",
+
+  PluginGetStatus: "plugin:getStatus",
+  PluginRefresh: "plugin:refresh",
+  PluginImport: "plugin:import",
+  PluginRemove: "plugin:remove",
+  PluginCanPlayOnline: "plugin:canPlayOnline",
+
+  LxList: "lx:list",
+  LxImportFile: "lx:importFile",
+  LxImportUrl: "lx:importUrl",
+  LxSetEnabled: "lx:setEnabled",
+  LxRemove: "lx:remove",
+  LxRemoveAll: "lx:removeAll",
+  LxMusicUrl: "lx:musicUrl",
+  LxSaveTestResults: "lx:saveTestResults",
+  LxGetTestReport: "lx:getTestReport",
+
+  WebdavListAccounts: "webdav:listAccounts",
+  WebdavSaveAccount: "webdav:saveAccount",
+  WebdavDeleteAccount: "webdav:deleteAccount",
+  WebdavTestConnection: "webdav:testConnection",
+  WebdavTestConnectionDraft: "webdav:testConnectionDraft",
+  WebdavBrowse: "webdav:browse",
+  WebdavGetScanRoots: "webdav:getScanRoots",
+  WebdavSaveScanRoots: "webdav:saveScanRoots",
+  WebdavScan: "webdav:scan",
+  WebdavCancelScan: "webdav:cancelScan",
+  WebdavGetSidecarLyrics: "webdav:getSidecarLyrics",
+  WebdavScanProgress: "webdav:scanProgress",
+
+  LyricsHasApiKey: "lyrics:hasApiKey",
+  LyricsSaveApiKey: "lyrics:saveApiKey",
+  LyricsTestApiKey: "lyrics:testApiKey",
+  LyricsTranslate: "lyrics:translate",
+
+  TaskbarSetEnabled: "taskbar:set-enabled",
+  TaskbarSetPerfConfig: "taskbar:set-perf-config",
+  TaskbarSetPosition: "taskbar:set-position",
+  TaskbarSetCoverMode: "taskbar:set-cover-mode",
+  TaskbarSetVisualizerEffect: "taskbar:set-visualizer-effect",
+  TaskbarSetLyricColorMode: "taskbar:set-lyric-color-mode",
+  TaskbarSetLayoutMode: "taskbar:set-layout-mode",
+  TaskbarListMonitors: "taskbar:list-monitors",
+  TaskbarSetMonitor: "taskbar:set-monitor",
+  TaskbarMonitorsChanged: "taskbar:monitors-changed",
+  TaskbarRemoteCommand: "taskbar:remote-command",
+  TaskbarSpectrumData: "taskbar:spectrum-data",
+} as const;
+
+export type IpcChannelName = (typeof IpcChannel)[keyof typeof IpcChannel];

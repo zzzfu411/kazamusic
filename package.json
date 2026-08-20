@@ -1,0 +1,44 @@
+{
+  "name": "kazam",
+  "version": "2.1.4",
+  "private": true,
+  "description": "KAZAM desktop music player — recovered source + buildable package",
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build:vite": "electron-vite build",
+    "prepare-app": "node scripts/prepare-app.mjs",
+    "compile": "node scripts/compile.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --experimental-strip-types test/shipped.test.mjs",
+    "recover": "node scripts/recover.mjs",
+    "pack:asar": "node scripts/pack-asar.mjs",
+    "build": "node scripts/compile.mjs && node scripts/pack-asar.mjs",
+    "dist": "node scripts/compile.mjs && node scripts/pack-asar.mjs && node scripts/dist-portable.mjs",
+    "dist:exe": "node scripts/dist-product.mjs",
+    "dist:nsis": "node scripts/compile.mjs && electron-builder --win nsis",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,css,json}\""
+  },
+  "dependencies": {
+    "@applemusic-like-lyrics/core": "^0.5.2",
+    "@applemusic-like-lyrics/lyric": "^1.0.1",
+    "@applemusic-like-lyrics/react": "^0.5.2",
+    "antd": "^6.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.7.0",
+    "electron": "42.5.0",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^4.0.1",
+    "esbuild": "^0.25.12",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.5"
+  }
+}

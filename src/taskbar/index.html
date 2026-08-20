@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAZAM · 任务栏</title>
+    <script>
+      (function () {
+        var th = "dark";
+        try {
+          var s = JSON.parse(localStorage.getItem("m7.settings.v1") || "{}");
+          var want = s.appearance && s.appearance.theme;
+          if (want === "light") th = "light";
+          else if (want === "system")
+            th =
+              window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", th);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

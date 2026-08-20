@@ -1,0 +1,143 @@
+.favorite-page,
+.search-page,
+.download-page,
+.recommend-feed-page,
+.recognize-page,
+.collection-detail-page {
+  color: var(--ink);
+}
+
+.fav-hero,
+.search-hero {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+.fav-title,
+.settings-title {
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+.fav-cover {
+  width: 148px;
+  height: 148px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  background: var(--paper);
+}
+.fav-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fav-owner, .fav-meta { color: var(--ink-muted); font-size: 13px; font-weight: 600; }
+
+.search-card {
+  border: 0 !important;
+  background: var(--paper) !important;
+  overflow: hidden;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow);
+}
+.search-card-cover,
+.recommend-feed-page .search-card-cover {
+  border-radius: var(--radius-md) !important;
+}
+.search-card-title { font-weight: 700; }
+.search-highlight,
+.search-lyric-mark { color: #173a52 !important; }
+
+.recommend-chart-col {
+  border-radius: var(--radius-lg) !important;
+  border: 0 !important;
+  background: var(--paper) !important;
+  box-shadow: var(--shadow);
+}
+.recommend-section-title {
+  font-weight: 700 !important;
+  letter-spacing: -0.4px;
+}
+
+.track-row,
+.search-track-row,
+.recommend-song-row,
+.dl-row {
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.track-row.active,
+.search-track-row.is-current,
+.recommend-song-row:hover,
+.dl-row.active {
+  background: var(--bg-hover);
+}
+
+.settings-nav-item.active {
+  background: #facc15 !important;
+  color: #1a1a2e !important;
+  border-radius: var(--radius-md);
+}
+html[data-theme="dark"] .settings-nav-item.active {
+  background: #173a52 !important;
+  color: #e8eef4 !important;
+}
+.settings-group-title { font-weight: 700; }
+.about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.about-brand-art {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+.about-name {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.about-tagline {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.recognize-page {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recognize-center { text-align: center; max-width: 560px; }
+.recognize-icon img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+.recognize-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 18px 0 8px;
+}
+
+.lx-source-item {
+  border: 0;
+  background: var(--paper);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-md);
+}
+
+.search-track-cover,
+.dl-cover {
+  border-radius: 8px !important;
+  overflow: hidden;
+}

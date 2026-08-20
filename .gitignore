@@ -1,0 +1,14 @@
+node_modules/
+app/
+release/
+out/
+dist/
+dist-electron/
+public/afp.js
+public/afp.wasm.js
+recovered/
+*.log
+*.err
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,91 @@
+/* kazam-theme */
+html, body, #root, .taskbar-app, .tp-shell {
+  font-family: "DM Sans", "PingFang SC", -apple-system, sans-serif;
+  margin: 0;
+  background: transparent;
+}
+.taskbar-app {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 6px 12px;
+  color: var(--ink, #1a1a2e);
+  background: rgba(255, 254, 249, 0.88);
+  border-radius: 16px;
+  box-sizing: border-box;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.12);
+}
+html[data-theme="dark"] .taskbar-app {
+  color: #f0f0f0;
+  background: rgba(8, 8, 8, 0.88);
+}
+.taskbar-cover {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+.taskbar-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+.taskbar-sub {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-muted, #555570);
+}
+.taskbar-progress {
+  height: 4px;
+  margin-top: 6px;
+  background: rgba(26, 26, 46, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.taskbar-progress span {
+  display: block;
+  height: 100%;
+  background: #173a52;
+}
+.taskbar-controls {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+.taskbar-controls button {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.taskbar-controls .is-play {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ff4d6a;
+  color: #fff;
+}
+html[data-theme="dark"] .taskbar-controls .is-play {
+  background: #173a52;
+  color: #e8eef4;
+}
+.taskbar-time {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-faint, #9999b0);
+  white-space: nowrap;
+}
+.tp-shell {
+  border-radius: 16px !important;
+  border: none !important;
+  background: rgba(8,8,8,.88) !important;
+  box-shadow: none !important;
+}

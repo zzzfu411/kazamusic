@@ -1,0 +1,34 @@
+appId: com.guazi.music
+productName: KAZAM
+copyright: KAZAM
+asar: true
+npmRebuild: false
+electronVersion: 42.5.0
+directories:
+  app: ../work/asar
+  output: release
+  buildResources: ../work/asar/build
+files:
+  - "**/*"
+  - "!**/*.map"
+asarUnpack:
+  - node_modules/better-sqlite3/**/*
+  - node_modules/koffi/**/*
+  - node_modules/@koromix/**/*
+win:
+  icon: app/build/icon.ico
+  executableName: KAZAM
+  target:
+    - target: dir
+      arch:
+        - x64
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: KAZAM
+  artifactName: KAZAM-Setup-${version}.exe
+artifactName: KAZAM-${version}-${os}-${arch}.${ext}
