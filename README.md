@@ -1,47 +1,63 @@
 # KAZAM
 
-桌面音乐播放器。奶油白日 / 暗色海军，圆角苹果风界面。
+A Windows x64 desktop music player built with Electron, React, and TypeScript—combining multi-platform catalog search, sandboxed LX custom audio sources, word-by-word lyrics, and desktop lyric overlays.
 
-![KAZAM 白日模式](docs/preview.png)
+English · [简体中文](README.zh-CN.md)
 
-## 运行
+| Light Mode | Dark Mode |
+| --- | --- |
+| ![Light Mode](docs/preview.png) | ![Dark Mode](docs/ui-preview-dark.png) |
 
-需要 Node.js 20+、Windows x64。
+## Features
+
+- **Multi-platform search** — Queries tracks, albums, playlists, and charts across NetEase Cloud Music, QQ Music, Kuwo, and Kugou from a single interface.
+- **Hybrid playback routing** — Pairs built-in `eapi` resolution with sandboxed LX custom source scripts under smart-fallback, priority, or exclusive routing modes.
+- **Word-by-word lyrics & visuals** — Full-screen playback view powered by `@applemusic-like-lyrics` (AMLL), real-time cover spectrum rendering, and cream-light / navy-dark themes.
+- **Library & cloud storage** — Local audio folder scanning, WebDAV streaming, song recognition, multi-part downloads, and SQLite-backed playlists and favorites (`%AppData%\Roaming\gz-music`).
+- **Windows desktop integration** — Floating Dynamic Island lyric capsule, embedded taskbar playback strip, and System Media Transport Controls (SMTC) hardware key support.
+
+## Quick Start
+
+Requires **Windows 10/11 (x64)** and **Node.js 20+**.
 
 ```bash
+git clone https://github.com/zzzfu411/kazamusic.git
+cd kazamusic
 npm install
 npm run dev
 ```
 
-打包便携版（生成 `release/KAZAM-win32-x64/KAZAM.exe`）：
+Build a standalone portable bundle (`release/KAZAM-win32-x64/KAZAM.exe`):
 
 ```bash
 npm run dist:exe
 ```
 
-`npm run dev` / `npm run dist:exe` 走第一方 `src/` + electron-vite。`npm run build` 仍是旧 asar 注入管线。
+`npm run dev`, `npm run build:vite`, and `npm run dist:exe` target the first-party `src/` + `electron-vite` pipeline; `npm run build` retains the legacy `asar` injection build. Application state stays in `%AppData%\Roaming\gz-music` to preserve existing local libraries.
 
-## 功能
+## Development & Project Structure
 
-- 搜索：网易 / 酷我 / QQ / 酷狗
-- 播放：内置 eapi + LX 自定义音源（智能 / 优先 / 独占）
-- 全屏沉浸详情、逐字歌词（AMLL）、封面频谱
-- 本地曲库、WebDAV、听歌识曲、下载、收藏
-- 灵动岛歌词、任务栏、系统媒体键（SMTC）
-
-应用数据目录仍用 `gz-music`（`%AppData%\Roaming\gz-music`），避免和旧安装冲突。
-
-## 源码
-
-```
-src/main/          Electron 主进程 + vendor IPC
-src/preload/       主窗 / 灵动岛 / 任务栏
-src/renderer/      界面、主题、搜索、播放器
-src/island/        桌面歌词胶囊
-src/taskbar/       任务栏播放条
-scripts/           编译与便携打包
+```bash
+npm run typecheck   # TypeScript compiler check
+npm run build:vite  # compile main, preload, and renderer bundles into out/
+npm test            # shipped bundle and theme regression assertions
 ```
 
-## 许可
+```text
+src/
+├── main/      Electron main process shell and vendored IPC bridge
+├── preload/   Context-isolated bridges for main window, island, and taskbar
+├── renderer/  React UI, theme tokens, search views, and AMLL lyric player
+├── island/    Floating desktop lyric capsule entry
+├── taskbar/   Embedded Windows taskbar mini-player entry
+└── shared/    Shared theme resolution, metadata, and plugin types
+scripts/       Build, portable packaging, and CDP inspection scripts
+```
 
-仅供个人学习与自用。请遵守各音乐平台服务条款。
+- [docs/brand.md](docs/brand.md) — Typography, color palette, and visual identity notes
+- [docs/ipc-map.md](docs/ipc-map.md) — Main/renderer IPC channel contracts
+- [docs/rebuild-status.md](docs/rebuild-status.md) — `electron-vite` migration status and remaining main-process splits
+
+---
+
+For personal learning and private use only; comply with the terms of service of each music platform.
